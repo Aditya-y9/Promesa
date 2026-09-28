@@ -1,0 +1,198 @@
+{
+  "_meta": {
+    "description": "Sample Jira-format issues with acceptance criteria for testing the AC Quality Ranker agent before connecting to real Jira.",
+    "field_explanation": "acceptanceCriteria can be a plain string (inline), an array of strings (one per criterion), or parsed from description. The agent normalises all to text for scoring.",
+    "source": "Synthetic — covers Excellent, Good, Needs Work, and Poor quality levels"
+  },
+  "issues": [
+    {
+      "key": "PROJ-101",
+      "summary": "Password Reset Flow",
+      "issuetype": "Story",
+      "priority": "High",
+      "status": "Ready for Dev",
+      "assignee": "jsmith",
+      "labels": ["frontend", "auth"],
+      "acceptanceCriteria": [
+        "Scenario: Successful password reset. Given I am on the login page, when I click 'Forgot Password' and enter my registered email and submit, then a password reset link is sent to that email within 30 seconds.",
+        "Scenario: Invalid email. Given I am on the forgot-password page, when I enter an email not registered in the system and submit, then I see an error message 'No account found with this email'.",
+        "Scenario: Expired token. Given I have a password reset token older than 15 minutes, when I click the reset link, then the token is rejected and I am redirected to request a new reset link with a message 'This reset link has expired. Please request a new one.'",
+        "Scenario: Successful password set. Given I have a valid reset token, when I enter a new password meeting the policy (min 8 chars, 1 uppercase, 1 digit) and confirm it and submit, then my password is updated and I am redirected to the login page with a success banner 'Password updated successfully'."
+      ]
+    },
+    {
+      "key": "PROJ-102",
+      "summary": "Export Dashboard to PDF",
+      "issuetype": "Story",
+      "priority": "Medium",
+      "status": "Refinement",
+      "assignee": "jdoe",
+      "labels": ["reporting", "export"],
+      "acceptanceCriteria": [
+        "Given I am viewing a dashboard with at least one widget, when I click the 'Export as PDF' button, then the system generates a PDF of the visible dashboard viewport.",
+        "The PDF file name should be 'dashboard-export-{current-date}.pdf'.",
+        "Given a dashboard with no data, when I export to PDF, then the PDF shows the dashboard layout with empty-state placeholders instead of erroring out.",
+        "The export must complete within 5 seconds for dashboards with up to 12 widgets.",
+        "Given the PDF generation is in progress, when I click 'Export' again, then the second request is queued and I see a toast 'Export already in progress'."
+      ]
+    },
+    {
+      "key": "PROJ-103",
+      "summary": "User Profile Picture Upload",
+      "issuetype": "Story",
+      "priority": "Low",
+      "status": "Backlog",
+      "assignee": "Unassigned",
+      "labels": ["profile", "UX"],
+      "acceptanceCriteria": [
+        "Users should be able to upload a profile picture easily and it should look good.",
+        "Image should be reasonably sized.",
+        "Make sure it works on mobile too.",
+        "If something goes wrong, show an error."
+      ]
+    },
+    {
+      "key": "PROJ-104",
+      "summary": "API Rate Limiter for /api/v1/search",
+      "issuetype": "Technical Story",
+      "priority": "Critical",
+      "status": "Ready for Dev",
+      "assignee": "agupta",
+      "labels": ["backend", "performance", "security"],
+      "acceptanceCriteria": [
+        "Scenario: Within rate limit. Given a client with a valid API key, when they send fewer than 100 requests per minute to /api/v1/search, then every request returns a 200 OK response and the response headers include X-RateLimit-Remaining with the correct count.",
+        "Scenario: Rate limit exceeded. Given a client who has sent 100 requests in the current 60-second sliding window, when they send the 101st request, then the API returns HTTP 429 and the response body contains a JSON object with 'error': 'rate_limit_exceeded' and 'retry_after_seconds' indicating the wait time.",
+        "Scenario: Rate limit resets. Given a client who received a 429 response, when they wait for the duration specified in retry_after_seconds and retry, then the request is processed normally and a 200 OK is returned.",
+        "Given an API key that has been revoked, when the client sends any request to any endpoint, then the API returns 401 Unauthorised with no rate-limit headers."
+      ]
+    },
+    {
+      "key": "PROJ-105",
+      "summary": "Onboarding Email Sequence",
+      "issuetype": "Story",
+      "priority": "Medium",
+      "status": "Refinement",
+      "assignee": "mwilson",
+      "labels": ["email", "marketing"],
+      "acceptanceCriteria": [
+        "System sends a welcome email immediately after user registration.",
+        "If the user has not completed their profile within 24 hours, send a reminder email.",
+        "If the user has not logged in for 3 days since registration, send a re-engagement email with a link to a getting-started guide.",
+        "All emails must include an unsubscribe link in the footer and respect the user's email opt-in preference.",
+        "Given the user has opted out of marketing emails, when any trigger event fires, then no marketing email is sent but transactional emails (welcome) are still delivered.",
+        "Scenario: Email bounces. Given the user's email address hard-bounces, when the system receives the bounce notification, then the user's email subscription status is set to 'bounced' and no further emails are sent."
+      ]
+    },
+    {
+      "key": "PROJ-106",
+      "summary": "Search Filters Enhancement",
+      "issuetype": "Story",
+      "priority": "Medium",
+      "status": "Backlog",
+      "assignee": "tlee",
+      "labels": ["search", "UX"],
+      "acceptanceCriteria": [
+        "Add more filters to the search page so users can narrow down results.",
+        "Make the filters fast and responsive.",
+        "Users should have a good experience when using the filters.",
+        "Test all major browsers."
+      ]
+    },
+    {
+      "key": "PROJ-107",
+      "summary": "Audit Log for Admin Actions",
+      "issuetype": "Story",
+      "priority": "High",
+      "status": "Ready for Dev",
+      "assignee": "aguptha",
+      "labels": ["admin", "security", "compliance"],
+      "acceptanceCriteria": [
+        "Scenario: Admin modifies user role. Given an admin user with 'super-admin' role, when they change another user's role from 'viewer' to 'editor', then an audit entry is created recording admin ID, target user ID, action type ('role_change'), old value, new value, timestamp (UTC, ISO 8601), and source IP.",
+        "Scenario: Failed authentication attempt by admin. Given an admin user, when they enter an incorrect password 3 times within 5 minutes, then an audit entry is created with action type 'failed_login' and subsequent attempts are blocked for 15 minutes.",
+        "Audit logs are append-only and cannot be modified or deleted by any user including super-admins.",
+        "Scenario: Query audit trail. Given I am a compliance auditor, when I query audit logs filtered by action type and date range, then the API returns paginated results (max 100 per page) with total count and next-page cursor."
+      ]
+    },
+    {
+      "key": "PROJ-108",
+      "summary": "Dark Mode Toggle",
+      "issuetype": "Story",
+      "priority": "Low",
+      "status": "Backlog",
+      "assignee": "Unassigned",
+      "labels": ["UI", "theme"],
+      "acceptanceCriteria": [
+        "Add a dark mode option.",
+        "Make sure it saves the user preference.",
+        "It should apply to all pages.",
+        "The toggle should be in the settings menu under 'Appearance'."
+      ]
+    },
+    {
+      "key": "PROJ-109",
+      "summary": "Bulk User Import via CSV",
+      "issuetype": "Story",
+      "priority": "High",
+      "status": "Ready for Dev",
+      "assignee": "rsharma",
+      "labels": ["admin", "import"],
+      "acceptanceCriteria": [
+        "Scenario: Successful import. Given I upload a CSV file with headers 'email,role,department' and exactly 50 valid rows, when I click 'Import', then all 50 users are created, a success summary is shown ('50 users imported, 0 errors'), and a detailed import log is available for download.",
+        "Scenario: Partial import with errors. Given I upload a CSV where 45 of 50 rows are valid and 5 have invalid email formats, when I click 'Import', then only the 45 valid users are created, an error summary is shown ('45 users imported, 5 errors — see error report'), and the system never creates a partially-written user record.",
+        "Scenario: Empty file. Given I upload a CSV with only headers and no data rows, when I click 'Import', then the system rejects the file with message 'CSV file contains no data rows'.",
+        "Duplicate email detection: given two rows in the CSV with the same email address, when the import runs, the second occurrence is flagged as a duplicate and skipped, and the error report includes the row numbers of all duplicates.",
+        "Maximum file size: the system accepts CSV files up to 10 MB; files larger than 10 MB are rejected with message 'File exceeds 10 MB limit' before any processing begins."
+      ]
+    },
+    {
+      "key": "PROJ-110",
+      "summary": "Notification Preferences Page",
+      "issuetype": "Story",
+      "priority": "Medium",
+      "status": "Refinement",
+      "assignee": "jdoe",
+      "labels": ["settings", "notifications"],
+      "acceptanceCriteria": [
+        "Users can turn notifications on and off.",
+        "It should be easy to understand.",
+        "Be careful about the UI layout.",
+        "Work with the backend team to make sure it connects properly."
+      ]
+    },
+    {
+      "key": "PROJ-111",
+      "summary": "Re-scope Demo Data Cleanup (prod PII purging)",
+      "issuetype": "Story",
+      "priority": "Critical",
+      "status": "Backlog",
+      "assignee": "Unassigned",
+      "labels": ["backup", "prod", "PII"],
+      "acceptanceCriteria": [
+        "Delete all rows where created_at is older than 365 days from the users table in production (contains PII).",
+        "Run the purge between 02:00 and 04:00 UTC only.",
+        "Do not run without the on-call DBA present.",
+        "The purge must complete in under 30 minutes.",
+        "After the purge, delete the corresponding backup snapshots older than 400 days."
+      ]
+    },
+    {
+      "key": "PROJ-112",
+      "summary": "Cross-Cutting Billing + Auth + Notifications Overhaul",
+      "issuetype": "Epic",
+      "priority": "Medium",
+      "status": "Backlog",
+      "assignee": "Unassigned",
+      "labels": ["epic", "billing", "auth"],
+      "acceptanceCriteria": [
+        "Implement the new billing API with usage-based metering, proration, and tax calculation.",
+        "Add SSO with SAML and OIDC for enterprise tenants.",
+        "Redesign the notification center with 5 new channels.",
+        "Add role-based access control for all new endpoints.",
+        "All old endpoints must be backward-compatible.",
+        "Add a migration for the billing schema and a migration for the auth schema.",
+        "Deploy to production behind a feature flag.",
+        "Everything must be covered by unit and integration tests."
+      ]
+    }
+  ]
+}

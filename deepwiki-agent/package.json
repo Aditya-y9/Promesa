@@ -1,0 +1,66 @@
+{
+  "name": "deepwiki-agent",
+  "displayName": "DeepWiki Agent - Risk-Aware Coding Agent",
+  "description": "A supercharged Claude Code clone: Jira integration, LangChain + Google Gemini, deepwiki ground-truth knowledge, deterministic guardrails, flowchart-based plan selection, company policies, upstream/downstream risk analysis and contract testing.",
+  "version": "0.1.0",
+  "publisher": "deepwiki",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "AI"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "deepwiki.openDashboard",
+        "title": "DeepWiki Agent: Open Dashboard",
+        "category": "DeepWiki"
+      },
+      {
+        "command": "deepwiki.addSkype",
+        "title": "DeepWiki Agent: Add a Skill",
+        "category": "DeepWiki"
+      },
+      {
+        "command": "deepwiki.showTrace",
+        "title": "DeepWiki Agent: Show audit trail",
+        "category": "DeepWiki"
+      }
+    ],
+    "configuration": {
+      "title": "DeepWiki Agent",
+      "properties": {
+        "deepwiki.companyFolder": {
+          "type": "string",
+          "default": "company",
+          "description": "Relative path (from workspace) of the folder containing company policy YAML files."
+        },
+        "deepwiki.deepwikiFolder": {
+          "type": "string",
+          "default": "deepwiki",
+          "description": "Relative path (from workspace) of the deepwiki knowledge folder used as ground truth."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "tsc -p ./",
+    "test": "tsc -p ./ && node tests/run-all.js"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "yaml": "^2.9.1",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "@types/vscode": "^1.138.0",
+    "typescript": "^5.9.3"
+  }
+}
