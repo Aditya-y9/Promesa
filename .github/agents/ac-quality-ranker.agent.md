@@ -19,9 +19,6 @@ Promesa reads specs, explores wikis/codebases, writes code, runs tests, and revi
 ### Extracting AC
 In order: a dedicated field (`acceptanceCriteria`/`acceptance_criteria`/`customfield_*` with AC-like content) → labelled section in `description` (`## Acceptance Criteria`, `AC`, bullets that are conditions) → embedded `Given/When/Then` or `Scenario:` blocks → else **No AC** (score low and note it). Never invent AC.
 
-### Extracting AC
-In order: a dedicated field (`acceptanceCriteria`/`acceptance_criteria`/`customfield_*` with AC-like content) → labelled section in `description` (`## Acceptance Criteria`, `AC`, bullets that are conditions) → embedded `Given/When/Then` or `Scenario:` blocks → else **No AC** (score low and note it). Never invent AC.
-
 ## Promesa Readiness rubric — 7 dimensions (caps; sum = 100)
 
 Grade **0–100**, then map to a gate. **No AC = 0 → BLOCK.**
@@ -45,6 +42,32 @@ Grade **0–100**, then map to a gate. **No AC = 0 → BLOCK.**
 - Missing AC or empty description → **BLOCK / 0** (expose it, don't drop the row).
 
 Generate per-ticket **Reason** (top 2–3 dims gained/lost) and **Key Improvement** (specific refinements so Promesa can take it) from the dimension scores in the script — never hardcode by ticket key.
+
+## Promesa Pre-work — Decision Canvas (makes plan A/B/C sharp and selection trivial)
+
+The gate decides *whether* Promesa takes a ticket. Promesa then generates **3 implementation plans (A/B/C)** the human discusses, refines, and selects. To make both sides easier, for each **PROCESS** ticket (and optionally the top REFINE ones) emit a **Decision Canvas** — `promesa-canvas-<KEY>.md` — that pre-packages the ticket so Promesa's plan generator produces *genuinely divergent, decision-grade* plans and the human can compare them on a consistent basis. This is the spec-driven-development pattern "spec as a selection/validation gate".
+
+Write it into the artifacts dir (`tickets/<KEY>/`) or workspace root (sample runs). Sections, in order:
+
+1. **`## Outcome contract`** — one line: the observable goal from the validator's perspective. Both plans and validation key off this.
+2. **`## AC as decision contract`** — each AC restated `[AC-n]` (Given/When/Then or single verifiable bullet), one concern each. These ids are the shared vocabulary for plan steps and validation.
+3. **`## Fences (DO / DO-NOT)`** — from the Constraints/Boundaries dim + risk scan: exactly what Promesa may touch and what it **must not** change (files, schema, deps, permissions, prod). This bounds every plan.
+4. **`## 3 strategy angles`** — for each of A/B/C, a *distinct* implementation strategy to force divergence, aligned to Promesa's plan labels:
+   - **A / Minimal & safe**: smallest change, reuse existing utils/patterns, fewest touched files, highest confidence.
+   - **B / Verify-first**: add guardrail/contract/regression tests before modifying, then implement — safest against regressions.
+   - **C / Test-driven / clean**: TDD (red→green→refactor) and/or refactor for maintainability while meeting AC.
+   These are seeds; Promesa adapts them to the actual codebase via deepwiki ground truth. Do NOT dictate exact code — keep HOW to Promesa.
+5. **`## Edge & negative cases to cover`** — the invalid/empty/duplicate/expired/401/429/boundary cases surfaced by the Edge dimension, so each plan includes them.
+6. **`## Comparison matrix`** — a minimal table the human fills/reads to select:
+   `| Plane | Touched files | New tests | Regression risk | Confidence | Verdict |`
+   Seed `Confidence` from the readiness score; leave `Verdict` blank for the human.
+7. **`## Permissions / approvals to request`** — anything Promesa must *ask* before doing (from risk scan), so the human just approves.
+
+Rules:
+- The canvas is a **packaging** of the ticket, not a scope expansion — never add new behavior beyond the ticket.
+- Emit only for PROCESS (and optional top REFINE) tickets — those are the ones Promesa will plan.
+- Keep a reusable helper (`promesa_canvas.py`) beside `generate_ac_rank.py`; keep it reproducible.
+- The human's job at plan-selection time becomes: read 3 summaries, scan the comparison matrix, pick / refine / merge — instead of extracting pros/cons from scratch.
 
 ## Jira API
 REST v3 (fall back to v2): `GET {base}/rest/api/3/search` with `Authorization: Basic <b64>` and JSON body `{"jql":"<JQL>","maxResults":100,"fields":["summary","description","status","priority","issuetype","labels","assignee"]}`. Default JQL: unresolved, ordered by priority. Never log the token; read `JIRAAPITOKEN`/`JIRAUSERNAME`/`JIRABASEURL` from env/settings. On auth failure, fall back to the sample and note it.

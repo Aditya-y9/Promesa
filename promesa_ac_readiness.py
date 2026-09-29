@@ -42,29 +42,34 @@ APPROVAL_GATES = {"human approval","permission gate","approval required",
 
 
 def detect_risk(all_text):
-    """Return (risky, has_approval_gate, has_weak_gate). Phrase-aware:
-    a risky keyword appearing in a negated requirement ('cannot be deleted',
-    'must not delete') does NOT count as risk."""
+    """Return (risky, has_approval_gate, has_weak_gate). Sentence-aware:
+    a risky keyword appearing in a negated or permission-grant-only clause
+    ('cannot be deleted', 'must not delete', 'only admins may delete') does NOT count."""
     lower = all_text
     has_approval_gate = any(g in lower for g in APPROVAL_GATES)
-    has_weak_gate = "on-call" in lower or "present" in lower
-
-    risky_hits = 0
-    for w in RISKY_WORDS:
-        for m in re.finditer(re.escape(w), lower):
-            start = max(0, m.start() - 12)
-            before = lower[start:m.start()]
-            if any(neg in before for neg in RISKY_NEGATIONS):
-                continue  # negated — not a risky action
-            risky_hits += 1
-
-    # Particular phrase that indicates 'present' as a required human watcher, not a weak gate
-    if "on-call" in lower or "with the on-call" in lower:
+    has_weak_gate = "on-call" in lower or "with the on-call" in lower
+    if "on-call" in lower:
         has_weak_gate = True
 
+    # Split into sentences to catch negations that span many words
+    sentences = re.split(r'[.!?\n;]+', lower)
+
+    risky_hits = 0
+    for sent in sentences:
+        # Check if this sentence has any negation/prohibition
+        has_negation = any(neg in sent for neg in RISKY_NEGATIONS)
+        for w in RISKY_WORDS:
+            if w in sent:
+                # If the sentence contains the word AND the sentence also contains a
+                # negation that forbids it (cannot, must not, etc.), it's not risky.
+                if has_negation:
+                    # True if the negation appears BEFORE the risky word in the sentence
+                    # or verbs are prohibitive (e.g. "cannot be deleted")
+                    if any(neg in sent[:sent.index(w)] for neg in RISKY_NEGATIONS):
+                        continue  # negated — not a risky action
+                risky_hits += 1
+
     risky = risky_hits > 0
-    # Prod scope where risky words lack both formal approval gate and weak guardian:
-    # cap to REFINE max.
     if risky and not has_approval_gate and not has_weak_gate:
         return (True, has_approval_gate, has_weak_gate)
     return (risky, has_approval_gate, has_weak_gate)
@@ -213,7 +218,7 @@ def score_ticket(issue):
         if top[1] >= dim_cap(top[0]) * 0.9:
             reason_parts.append(f"strong {dim_labels[top[0]]}")
 
-    if caps_to_refine and risky_hits > 0 and not has_approval_gate:
+    if caps_to_refine and risky and not has_approval_gate:
         if has_weak_gate:
             reason_parts.append("high-risk scope with weak gate (human present, not formal)")
         else:
@@ -227,7 +232,7 @@ def score_ticket(issue):
 
     # Improvement: weakest dim's suggestion, plus scope/risk note
     improv_parts = []
-    if overall > 0:
+    if overall > 0 and not (gate == "PROCESS"):
         worst_dim = min(weak_dims, key=lambda x: x[1])[0] if weak_dims else None
         if worst_dim:
             improv_parts.append(dim_improvements[worst_dim])
@@ -235,10 +240,18 @@ def score_ticket(issue):
                 improv_parts.append(dim_improvements.get(weak_dims[1][0], ""))
     if scope_too_large:
         improv_parts.append("Break into smaller independent tickets — one autonomous scope per ticket")
-    if caps_to_refine and not has_approval_gate and risky_hits > 0:
+    if caps_to_refine and not has_approval_gate and risky:
         improv_parts.append("Write explicit human-approval/permission gate for the risky operations before Promesa can proceed")
+    if gate == "PROCESS":
+        improv_parts.append("Ready for Promesa — validate outcomes and review the diff; monitor as normal")
     if not improv_parts and overall == 0:
         improv_parts.append("Write testable, constraint-bound acceptance criteria before handing to Promesa")
+    if not improv_parts and overall > 0:
+        improv_parts.append("Sharpen a low-scoring dimension (see Reason) to move toward a clean PROCESS gate")
+
+    # Deduplicate while preserving order
+    seen = set()
+    improv_parts = [p for p in improv_parts if p and not (p in seen or seen.add(p))]
 
     improvement = "; ".join(p for p in improv_parts if p)
 
