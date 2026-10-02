@@ -1,0 +1,332 @@
+{
+ "verdict": {
+  "agreement": 0.65,
+  "p50_ms": 29.7,
+  "top_picks": [
+   [
+    "pass",
+    12
+   ],
+   [
+    "revise",
+    8
+   ]
+  ],
+  "risk_coverage": [
+   [
+    0.1,
+    1.0
+   ],
+   [
+    0.25,
+    0.8
+   ],
+   [
+    0.5,
+    0.7
+   ],
+   [
+    0.75,
+    0.6667
+   ],
+   [
+    0.9,
+    0.6111
+   ],
+   [
+    1.0,
+    0.65
+   ]
+  ],
+  "rows": [
+   {
+    "id": 0,
+    "pick": "pass",
+    "conf": 0.0676,
+    "ms": 217.73
+   },
+   {
+    "id": 1,
+    "pick": "pass",
+    "conf": 0.1418,
+    "ms": 25.79
+   },
+   {
+    "id": 2,
+    "pick": "pass",
+    "conf": 0.0354,
+    "ms": 29.72
+   },
+   {
+    "id": 3,
+    "pick": "pass",
+    "conf": 0.0192,
+    "ms": 32.94
+   },
+   {
+    "id": 4,
+    "pick": "revise",
+    "conf": 0.0,
+    "ms": 29.99
+   },
+   {
+    "id": 5,
+    "pick": "pass",
+    "conf": 0.0502,
+    "ms": 27.7
+   },
+   {
+    "id": 6,
+    "pick": "pass",
+    "conf": 0.0481,
+    "ms": 33.03
+   },
+   {
+    "id": 7,
+    "pick": "pass",
+    "conf": 0.0415,
+    "ms": 81.3
+   },
+   {
+    "id": 8,
+    "pick": "revise",
+    "conf": 0.0684,
+    "ms": 37.15
+   },
+   {
+    "id": 9,
+    "pick": "pass",
+    "conf": 0.0198,
+    "ms": 37.02
+   },
+   {
+    "id": 10,
+    "pick": "revise",
+    "conf": 0.0328,
+    "ms": 83.7
+   },
+   {
+    "id": 11,
+    "pick": "revise",
+    "conf": 0.0308,
+    "ms": 128.49
+   },
+   {
+    "id": 12,
+    "pick": "pass",
+    "conf": 0.4901,
+    "ms": 28.48
+   },
+   {
+    "id": 13,
+    "pick": "pass",
+    "conf": 0.2247,
+    "ms": 24.32
+   },
+   {
+    "id": 14,
+    "pick": "revise",
+    "conf": 0.0003,
+    "ms": 25.27
+   },
+   {
+    "id": 15,
+    "pick": "revise",
+    "conf": 0.0895,
+    "ms": 25.85
+   },
+   {
+    "id": 16,
+    "pick": "revise",
+    "conf": 0.0011,
+    "ms": 29.4
+   },
+   {
+    "id": 17,
+    "pick": "revise",
+    "conf": 0.1016,
+    "ms": 25.51
+   },
+   {
+    "id": 18,
+    "pick": "pass",
+    "conf": 0.0771,
+    "ms": 26.97
+   },
+   {
+    "id": 19,
+    "pick": "pass",
+    "conf": 0.0857,
+    "ms": 29.58
+   }
+  ],
+  "agreement_sonnet": null
+ },
+ "criterion": {
+  "agreement": 0.15,
+  "p50_ms": 35.4,
+  "top_picks": [
+   [
+    "missing_audit_logging",
+    5
+   ],
+   [
+    "blocking_io",
+    4
+   ],
+   [
+    "heavy_allocation",
+    2
+   ]
+  ],
+  "risk_coverage": [
+   [
+    0.1,
+    0.5
+   ],
+   [
+    0.25,
+    0.2
+   ],
+   [
+    0.5,
+    0.3
+   ],
+   [
+    0.75,
+    0.2
+   ],
+   [
+    0.9,
+    0.1667
+   ],
+   [
+    1.0,
+    0.15
+   ]
+  ],
+  "rows": [
+   {
+    "id": 0,
+    "pick": "blocking_io",
+    "conf": 0.2989,
+    "ms": 30.19
+   },
+   {
+    "id": 1,
+    "pick": "missing_audit_logging",
+    "conf": 0.3127,
+    "ms": 30.82
+   },
+   {
+    "id": 2,
+    "pick": "missing_circuit_breaker",
+    "conf": 0.262,
+    "ms": 30.74
+   },
+   {
+    "id": 3,
+    "pick": "heavy_allocation",
+    "conf": 0.3512,
+    "ms": 30.06
+   },
+   {
+    "id": 4,
+    "pick": "open_trust_boundary",
+    "conf": 0.4652,
+    "ms": 36.06
+   },
+   {
+    "id": 5,
+    "pick": "unbounded_transaction",
+    "conf": 0.6095,
+    "ms": 46.27
+   },
+   {
+    "id": 6,
+    "pick": "blocking_io",
+    "conf": 0.3634,
+    "ms": 49.32
+   },
+   {
+    "id": 7,
+    "pick": "raw_query",
+    "conf": 0.4499,
+    "ms": 43.61
+   },
+   {
+    "id": 8,
+    "pick": "unbounded_retries",
+    "conf": 0.4155,
+    "ms": 29.99
+   },
+   {
+    "id": 9,
+    "pick": "heavy_allocation",
+    "conf": 0.3487,
+    "ms": 30.22
+   },
+   {
+    "id": 10,
+    "pick": "missing_audit_logging",
+    "conf": 0.7211,
+    "ms": 33.85
+   },
+   {
+    "id": 11,
+    "pick": "blocking_io",
+    "conf": 0.4622,
+    "ms": 36.17
+   },
+   {
+    "id": 12,
+    "pick": "blocking_io",
+    "conf": 0.3842,
+    "ms": 38.72
+   },
+   {
+    "id": 13,
+    "pick": "missing_audit_logging",
+    "conf": 0.4587,
+    "ms": 34.17
+   },
+   {
+    "id": 14,
+    "pick": "missing_connection_pool",
+    "conf": 0.4846,
+    "ms": 34.82
+   },
+   {
+    "id": 15,
+    "pick": "missing_audit_logging",
+    "conf": 0.5355,
+    "ms": 34.79
+   },
+   {
+    "id": 16,
+    "pick": "unbounded_retries",
+    "conf": 0.3534,
+    "ms": 38.15
+   },
+   {
+    "id": 17,
+    "pick": "no_chunking",
+    "conf": 0.5647,
+    "ms": 38.03
+   },
+   {
+    "id": 18,
+    "pick": "missing_audit_logging",
+    "conf": 0.407,
+    "ms": 39.23
+   },
+   {
+    "id": 19,
+    "pick": "none",
+    "conf": 0.2646,
+    "ms": 38.28
+   }
+  ],
+  "agreement_sonnet": null
+ }
+}

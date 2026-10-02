@@ -1,2 +1,16 @@
 deepwiki-agent/node_modules
 deepwiki-agent/out
+.venv
+__pycache__
+
+# Large model checkpoints (804MB each) — too big for git; keep them local / zip to share
+LAYA/finetune/runs/**/model.safetensors
+LAYA/finetune/runs/**/model.pt
+LAYA/finetune/runs/**/model.bin
+LAYA/finetune/runs/**/*.safetensors
+
+# Local logs / scratch
+*.log
+LAYA/finetune/train*.log
+
+airllm/airllm-env

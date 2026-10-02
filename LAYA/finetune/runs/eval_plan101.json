@@ -1,0 +1,332 @@
+{
+ "verdict": {
+  "agreement": 0.75,
+  "p50_ms": 38.5,
+  "top_picks": [
+   [
+    "revise",
+    14
+   ],
+   [
+    "pass",
+    6
+   ]
+  ],
+  "risk_coverage": [
+   [
+    0.1,
+    1.0
+   ],
+   [
+    0.25,
+    1.0
+   ],
+   [
+    0.5,
+    0.9
+   ],
+   [
+    0.75,
+    0.9333
+   ],
+   [
+    0.9,
+    0.8333
+   ],
+   [
+    1.0,
+    0.75
+   ]
+  ],
+  "rows": [
+   {
+    "id": 0,
+    "pick": "pass",
+    "conf": 0.0827,
+    "ms": 110.78
+   },
+   {
+    "id": 1,
+    "pick": "pass",
+    "conf": 0.0597,
+    "ms": 48.22
+   },
+   {
+    "id": 2,
+    "pick": "revise",
+    "conf": 0.0616,
+    "ms": 51.36
+   },
+   {
+    "id": 3,
+    "pick": "revise",
+    "conf": 0.5086,
+    "ms": 37.67
+   },
+   {
+    "id": 4,
+    "pick": "revise",
+    "conf": 0.4023,
+    "ms": 51.86
+   },
+   {
+    "id": 5,
+    "pick": "revise",
+    "conf": 0.4894,
+    "ms": 46.24
+   },
+   {
+    "id": 6,
+    "pick": "revise",
+    "conf": 0.1019,
+    "ms": 44.63
+   },
+   {
+    "id": 7,
+    "pick": "revise",
+    "conf": 0.5379,
+    "ms": 102.23
+   },
+   {
+    "id": 8,
+    "pick": "revise",
+    "conf": 0.4963,
+    "ms": 42.44
+   },
+   {
+    "id": 9,
+    "pick": "revise",
+    "conf": 0.3556,
+    "ms": 40.08
+   },
+   {
+    "id": 10,
+    "pick": "revise",
+    "conf": 0.4476,
+    "ms": 39.26
+   },
+   {
+    "id": 11,
+    "pick": "revise",
+    "conf": 0.6053,
+    "ms": 30.28
+   },
+   {
+    "id": 12,
+    "pick": "pass",
+    "conf": 0.8102,
+    "ms": 37.1
+   },
+   {
+    "id": 13,
+    "pick": "pass",
+    "conf": 0.5045,
+    "ms": 26.72
+   },
+   {
+    "id": 14,
+    "pick": "revise",
+    "conf": 0.3901,
+    "ms": 32.92
+   },
+   {
+    "id": 15,
+    "pick": "revise",
+    "conf": 0.495,
+    "ms": 30.58
+   },
+   {
+    "id": 16,
+    "pick": "revise",
+    "conf": 0.4068,
+    "ms": 28.66
+   },
+   {
+    "id": 17,
+    "pick": "revise",
+    "conf": 0.5127,
+    "ms": 28.59
+   },
+   {
+    "id": 18,
+    "pick": "pass",
+    "conf": 0.2197,
+    "ms": 32.51
+   },
+   {
+    "id": 19,
+    "pick": "pass",
+    "conf": 0.006,
+    "ms": 31.37
+   }
+  ],
+  "agreement_sonnet": null
+ },
+ "criterion": {
+  "agreement": 0.65,
+  "p50_ms": 33.2,
+  "top_picks": [
+   [
+    "none",
+    8
+   ],
+   [
+    "unbounded_transaction",
+    3
+   ],
+   [
+    "hardcoded_secret",
+    2
+   ]
+  ],
+  "risk_coverage": [
+   [
+    0.1,
+    1.0
+   ],
+   [
+    0.25,
+    0.8
+   ],
+   [
+    0.5,
+    0.7
+   ],
+   [
+    0.75,
+    0.7333
+   ],
+   [
+    0.9,
+    0.6667
+   ],
+   [
+    1.0,
+    0.65
+   ]
+  ],
+  "rows": [
+   {
+    "id": 0,
+    "pick": "none",
+    "conf": 0.3925,
+    "ms": 32.73
+   },
+   {
+    "id": 1,
+    "pick": "none",
+    "conf": 0.4248,
+    "ms": 31.97
+   },
+   {
+    "id": 2,
+    "pick": "none",
+    "conf": 0.3449,
+    "ms": 35.93
+   },
+   {
+    "id": 3,
+    "pick": "unbounded_transaction",
+    "conf": 0.428,
+    "ms": 29.17
+   },
+   {
+    "id": 4,
+    "pick": "raw_query",
+    "conf": 0.3775,
+    "ms": 30.61
+   },
+   {
+    "id": 5,
+    "pick": "unbounded_transaction",
+    "conf": 0.3914,
+    "ms": 30.32
+   },
+   {
+    "id": 6,
+    "pick": "none",
+    "conf": 0.3056,
+    "ms": 33.05
+   },
+   {
+    "id": 7,
+    "pick": "hardcoded_secret",
+    "conf": 0.3899,
+    "ms": 34.47
+   },
+   {
+    "id": 8,
+    "pick": "missing_circuit_breaker",
+    "conf": 0.3285,
+    "ms": 28.14
+   },
+   {
+    "id": 9,
+    "pick": "heavy_allocation",
+    "conf": 0.3426,
+    "ms": 32.2
+   },
+   {
+    "id": 10,
+    "pick": "missing_audit_logging",
+    "conf": 0.3018,
+    "ms": 41.6
+   },
+   {
+    "id": 11,
+    "pick": "blocking_io",
+    "conf": 0.3711,
+    "ms": 36.09
+   },
+   {
+    "id": 12,
+    "pick": "none",
+    "conf": 0.4552,
+    "ms": 38.74
+   },
+   {
+    "id": 13,
+    "pick": "none",
+    "conf": 0.4476,
+    "ms": 35.07
+   },
+   {
+    "id": 14,
+    "pick": "blocking_io",
+    "conf": 0.3582,
+    "ms": 43.78
+   },
+   {
+    "id": 15,
+    "pick": "hardcoded_secret",
+    "conf": 0.4659,
+    "ms": 29.65
+   },
+   {
+    "id": 16,
+    "pick": "missing_circuit_breaker",
+    "conf": 0.2449,
+    "ms": 35.17
+   },
+   {
+    "id": 17,
+    "pick": "unbounded_transaction",
+    "conf": 0.3571,
+    "ms": 33.41
+   },
+   {
+    "id": 18,
+    "pick": "none",
+    "conf": 0.428,
+    "ms": 30.76
+   },
+   {
+    "id": 19,
+    "pick": "none",
+    "conf": 0.4175,
+    "ms": 34.29
+   }
+  ],
+  "agreement_sonnet": null
+ }
+}

@@ -1,0 +1,111 @@
+{
+ "verdict": {
+  "pass": {
+   "prec": 0.897,
+   "rec": 0.867,
+   "f1": 0.881
+  },
+  "revise": {
+   "prec": 0.933,
+   "rec": 0.949,
+   "f1": 0.941
+  }
+ },
+ "criterion": {
+  "blocking_io": {
+   "prec": 0.0,
+   "rec": 0.0,
+   "f1": 0.0
+  },
+  "hardcoded_secret": {
+   "prec": 1.0,
+   "rec": 0.75,
+   "f1": 0.857
+  },
+  "heavy_allocation": {
+   "prec": 0.375,
+   "rec": 0.75,
+   "f1": 0.5
+  },
+  "ignores_do_not": {
+   "prec": 0.0,
+   "rec": 0.0,
+   "f1": 0.0
+  },
+  "missing_audit_logging": {
+   "prec": 0.333,
+   "rec": 1.0,
+   "f1": 0.5
+  },
+  "missing_circuit_breaker": {
+   "prec": 0.2,
+   "rec": 0.333,
+   "f1": 0.25
+  },
+  "missing_connection_pool": {
+   "prec": 0.667,
+   "rec": 0.667,
+   "f1": 0.667
+  },
+  "missing_fallback": {
+   "prec": 0.0,
+   "rec": 0.0,
+   "f1": 0.0
+  },
+  "missing_idempotency": {
+   "prec": 0.0,
+   "rec": 0.0,
+   "f1": 0.0
+  },
+  "missing_pagination": {
+   "prec": 0.75,
+   "rec": 1.0,
+   "f1": 0.857
+  },
+  "naive_in_memory_collection": {
+   "prec": 1.0,
+   "rec": 0.75,
+   "f1": 0.857
+  },
+  "no_chunking": {
+   "prec": 1.0,
+   "rec": 1.0,
+   "f1": 1.0
+  },
+  "none": {
+   "prec": 0.857,
+   "rec": 1.0,
+   "f1": 0.923
+  },
+  "open_trust_boundary": {
+   "prec": 0.0,
+   "rec": 0.0,
+   "f1": 0.0
+  },
+  "overly_risky": {
+   "prec": 1.0,
+   "rec": 0.333,
+   "f1": 0.5
+  },
+  "raw_query": {
+   "prec": 0.25,
+   "rec": 0.333,
+   "f1": 0.286
+  },
+  "unbounded_retries": {
+   "prec": 1.0,
+   "rec": 1.0,
+   "f1": 1.0
+  },
+  "unbounded_transaction": {
+   "prec": 0.5,
+   "rec": 0.333,
+   "f1": 0.4
+  },
+  "unshielded_remote_call": {
+   "prec": 0.5,
+   "rec": 0.333,
+   "f1": 0.4
+  }
+ }
+}

@@ -1,0 +1,17 @@
+# LAYA fine-tuning (plan-critique) — pip requirements
+# Install into a machine with a GPU for actual training:
+#   pip install -r requirements.txt
+# Data generation (build_train_set.py) additionally needs `anthropic` and a paid seat.
+
+# Core decision-model runtime + training
+laya>=0.3
+torch>=2.1
+transformers>=4.40
+safetensors
+huggingface_hub
+
+# Data generation (build_train_set.py) — needs ANTHROPIC_API_KEY
+anthropic>=0.40
+
+# Mix plots (mix_report.py / prepare_data.py)
+matplotlib
