@@ -1,0 +1,470 @@
+[
+  {
+    "key": "PROJ-111",
+    "summary": "Re-scope Demo Data Cleanup (prod PII purging)",
+    "overall": 100.0,
+    "gate": "PROCESS ✅",
+    "qualifier": "Agent-ready — safe for autonomous execution",
+    "ac_count": 5,
+    "dimensions": {
+      "clarity": {
+        "score": 1.0,
+        "finding": "Crystal clear: no vague language. / Sangat jelas: tidak ada bahasa kabur."
+      },
+      "testability": {
+        "score": 1.0,
+        "finding": "Fully testable: every criterion is a verifiable pass/fail statement. / Sepenuhnya teruji: setiap kriteria bisa diverifikasi."
+      },
+      "specificity": {
+        "score": 1.0,
+        "finding": "Well-quantified: time limits, sizes, and counts are specified. / Terukur dengan baik: batas waktu, ukuran, jumlah disebutkan."
+      },
+      "structure": {
+        "score": 1.0,
+        "finding": "Excellent BDD structure throughout. / Struktur BDD yang sangat baik."
+      },
+      "edge_negative": {
+        "score": 1.0,
+        "finding": "Good coverage of error paths, boundaries, and edge cases. / Cakupan error, batas, dan kasus tepi yang baik."
+      },
+      "outcome_focus": {
+        "score": 1.0,
+        "finding": "Purely outcome-focused: describes what the user sees and experiences. / Sepenuhnya fokus pada hasil: menjelaskan apa yang dilihat dan dialami pengguna."
+      },
+      "risk": {
+        "score": 1.0,
+        "finding": "No risk signals — safe for autonomous processing. / Tidak ada sinyal risiko — aman untuk pemrosesan otomatis."
+      }
+    },
+    "generated_at": "2026-10-01T07:01:59.001241+00:00"
+  },
+  {
+    "key": "PROJ-109",
+    "summary": "Bulk User Import via CSV",
+    "overall": 96.0,
+    "gate": "PROCESS ✅",
+    "qualifier": "Agent-ready — safe for autonomous execution",
+    "ac_count": 5,
+    "dimensions": {
+      "clarity": {
+        "score": 1.0,
+        "finding": "Crystal clear: no vague language. / Sangat jelas: tidak ada bahasa kabur."
+      },
+      "testability": {
+        "score": 1.0,
+        "finding": "Fully testable: every criterion is a verifiable pass/fail statement. / Sepenuhnya teruji: setiap kriteria bisa diverifikasi."
+      },
+      "specificity": {
+        "score": 1.0,
+        "finding": "Well-quantified: time limits, sizes, and counts are specified. / Terukur dengan baik: batas waktu, ukuran, jumlah disebutkan."
+      },
+      "structure": {
+        "score": 1.0,
+        "finding": "Excellent BDD structure throughout. / Struktur BDD yang sangat baik."
+      },
+      "edge_negative": {
+        "score": 1.0,
+        "finding": "Good coverage of error paths, boundaries, and edge cases. / Cakupan error, batas, dan kasus tepi yang baik."
+      },
+      "outcome_focus": {
+        "score": 1.0,
+        "finding": "Purely outcome-focused: describes what the user sees and experiences. / Sepenuhnya fokus pada hasil: menjelaskan apa yang dilihat dan dialami pengguna."
+      },
+      "risk": {
+        "score": 0.6,
+        "finding": "Risky but gated by approval. / Berisiko tapi sudah ada persetujuan."
+      }
+    },
+    "generated_at": "2026-10-01T07:01:55.888282+00:00"
+  },
+  {
+    "key": "PROJ-112",
+    "summary": "Cross-Cutting Billing + Auth + Notifications Overhaul",
+    "overall": 90.0,
+    "gate": "REFINE ⚡",
+    "qualifier": "Needs improvement before autonomous processing",
+    "ac_count": 8,
+    "dimensions": {
+      "clarity": {
+        "score": 1.0,
+        "finding": "Crystal clear: no vague language. / Sangat jelas: tidak ada bahasa kabur."
+      },
+      "testability": {
+        "score": 1.0,
+        "finding": "Fully testable: every criterion is a verifiable pass/fail statement. / Sepenuhnya teruji: setiap kriteria bisa diverifikasi."
+      },
+      "specificity": {
+        "score": 1.0,
+        "finding": "Well-quantified: time limits, sizes, and counts are specified. / Terukur dengan baik: batas waktu, ukuran, jumlah disebutkan."
+      },
+      "structure": {
+        "score": 1.0,
+        "finding": "Excellent BDD structure throughout. / Struktur BDD yang sangat baik."
+      },
+      "edge_negative": {
+        "score": 1.0,
+        "finding": "Good coverage of error paths, boundaries, and edge cases. / Cakupan error, batas, dan kasus tepi yang baik."
+      },
+      "outcome_focus": {
+        "score": 1.0,
+        "finding": "Purely outcome-focused: describes what the user sees and experiences. / Sepenuhnya fokus pada hasil: menjelaskan apa yang dilihat dan dialami pengguna."
+      },
+      "risk": {
+        "score": 0.0,
+        "finding": "Unguarded high-risk operation. Add an explicit approval gate. / Operasi berisiko tinggi tanpa pengaman. Tambahkan gerbang persetujuan eksplisit."
+      }
+    },
+    "generated_at": "2026-10-01T07:02:01.191646+00:00"
+  },
+  {
+    "key": "PROJ-101",
+    "summary": "Password Reset Flow",
+    "overall": 73.5,
+    "gate": "REFINE ⚡",
+    "qualifier": "Needs improvement before autonomous processing",
+    "ac_count": 4,
+    "dimensions": {
+      "clarity": {
+        "score": 0.75,
+        "finding": "Mostly clear but a few terms could be more concrete. / Sebagian jelas, beberapa istilah bisa lebih konkret."
+      },
+      "testability": {
+        "score": 0.75,
+        "finding": "Some testable structure, but not every criterion is pass/fail. / Beberapa struktur teruji, tapi belum semua kriteria bisa lulus/gagal."
+      },
+      "specificity": {
+        "score": 0.75,
+        "finding": "Some quantifiers present but coverage is uneven. / Beberapa angka sudah ada tapi belum merata."
+      },
+      "structure": {
+        "score": 0.75,
+        "finding": "Mixed format—some GWT, some prose. Standardise. / Format campuran—sebagian GWT, sebagian prosa. Standarisasi."
+      },
+      "edge_negative": {
+        "score": 0.75,
+        "finding": "Some negative coverage but skip important paths (see report). / Beberapa kasus negatif ada tapi melewatkan jalur penting."
+      },
+      "outcome_focus": {
+        "score": 0.75,
+        "finding": "Mostly outcome-focused but some implementation language remains. / Sebagian besar fokus pada hasil tapi masih ada bahasa implementasi."
+      },
+      "risk": {
+        "score": 0.6,
+        "finding": "Risky but gated by approval. / Berisiko tapi sudah ada persetujuan."
+      }
+    },
+    "generated_at": "2026-10-01T07:01:34.304070+00:00"
+  },
+  {
+    "key": "PROJ-104",
+    "summary": "API Rate Limiter for /api/v1/search",
+    "overall": 73.5,
+    "gate": "REFINE ⚡",
+    "qualifier": "Needs improvement before autonomous processing",
+    "ac_count": 4,
+    "dimensions": {
+      "clarity": {
+        "score": 0.75,
+        "finding": "Mostly clear but a few terms could be more concrete. / Sebagian jelas, beberapa istilah bisa lebih konkret."
+      },
+      "testability": {
+        "score": 0.75,
+        "finding": "Some testable structure, but not every criterion is pass/fail. / Beberapa struktur teruji, tapi belum semua kriteria bisa lulus/gagal."
+      },
+      "specificity": {
+        "score": 0.75,
+        "finding": "Some quantifiers present but coverage is uneven. / Beberapa angka sudah ada tapi belum merata."
+      },
+      "structure": {
+        "score": 0.75,
+        "finding": "Mixed format—some GWT, some prose. Standardise. / Format campuran—sebagian GWT, sebagian prosa. Standarisasi."
+      },
+      "edge_negative": {
+        "score": 0.75,
+        "finding": "Some negative coverage but skip important paths (see report). / Beberapa kasus negatif ada tapi melewatkan jalur penting."
+      },
+      "outcome_focus": {
+        "score": 0.75,
+        "finding": "Mostly outcome-focused but some implementation language remains. / Sebagian besar fokus pada hasil tapi masih ada bahasa implementasi."
+      },
+      "risk": {
+        "score": 0.6,
+        "finding": "Risky but gated by approval. / Berisiko tapi sudah ada persetujuan."
+      }
+    },
+    "generated_at": "2026-10-01T07:01:41.904097+00:00"
+  },
+  {
+    "key": "PROJ-106",
+    "summary": "Search Filters Enhancement",
+    "overall": 73.5,
+    "gate": "REFINE ⚡",
+    "qualifier": "Needs improvement before autonomous processing",
+    "ac_count": 4,
+    "dimensions": {
+      "clarity": {
+        "score": 0.75,
+        "finding": "Mostly clear but a few terms could be more concrete. / Sebagian jelas, beberapa istilah bisa lebih konkret."
+      },
+      "testability": {
+        "score": 0.75,
+        "finding": "Some testable structure, but not every criterion is pass/fail. / Beberapa struktur teruji, tapi belum semua kriteria bisa lulus/gagal."
+      },
+      "specificity": {
+        "score": 0.75,
+        "finding": "Some quantifiers present but coverage is uneven. / Beberapa angka sudah ada tapi belum merata."
+      },
+      "structure": {
+        "score": 0.75,
+        "finding": "Mixed format—some GWT, some prose. Standardise. / Format campuran—sebagian GWT, sebagian prosa. Standarisasi."
+      },
+      "edge_negative": {
+        "score": 0.75,
+        "finding": "Some negative coverage but skip important paths (see report). / Beberapa kasus negatif ada tapi melewatkan jalur penting."
+      },
+      "outcome_focus": {
+        "score": 0.75,
+        "finding": "Mostly outcome-focused but some implementation language remains. / Sebagian besar fokus pada hasil tapi masih ada bahasa implementasi."
+      },
+      "risk": {
+        "score": 0.6,
+        "finding": "Risky but gated by approval. / Berisiko tapi sudah ada persetujuan."
+      }
+    },
+    "generated_at": "2026-10-01T07:01:45.823771+00:00"
+  },
+  {
+    "key": "PROJ-107",
+    "summary": "Audit Log for Admin Actions",
+    "overall": 68.5,
+    "gate": "REFINE ⚡",
+    "qualifier": "Needs improvement before autonomous processing",
+    "ac_count": 4,
+    "dimensions": {
+      "clarity": {
+        "score": 0.75,
+        "finding": "Mostly clear but a few terms could be more concrete. / Sebagian jelas, beberapa istilah bisa lebih konkret."
+      },
+      "testability": {
+        "score": 0.75,
+        "finding": "Some testable structure, but not every criterion is pass/fail. / Beberapa struktur teruji, tapi belum semua kriteria bisa lulus/gagal."
+      },
+      "specificity": {
+        "score": 0.75,
+        "finding": "Some quantifiers present but coverage is uneven. / Beberapa angka sudah ada tapi belum merata."
+      },
+      "structure": {
+        "score": 0.75,
+        "finding": "Mixed format—some GWT, some prose. Standardise. / Format campuran—sebagian GWT, sebagian prosa. Standarisasi."
+      },
+      "edge_negative": {
+        "score": 0.75,
+        "finding": "Some negative coverage but skip important paths (see report). / Beberapa kasus negatif ada tapi melewatkan jalur penting."
+      },
+      "outcome_focus": {
+        "score": 0.25,
+        "finding": "Describes implementation steps (call, install, update DB). Focus on user-observable behaviour. / Menjelaskan langkah implementasi. Fokus pada perilaku yang bisa diamati pengguna. ⚠️ PRIORITY — lowest dimension."
+      },
+      "risk": {
+        "score": 0.6,
+        "finding": "Risky but gated by approval. / Berisiko tapi sudah ada persetujuan."
+      }
+    },
+    "generated_at": "2026-10-01T07:01:49.419620+00:00"
+  },
+  {
+    "key": "PROJ-108",
+    "summary": "Dark Mode Toggle",
+    "overall": 61.0,
+    "gate": "REFINE ⚡",
+    "qualifier": "Needs improvement before autonomous processing",
+    "ac_count": 4,
+    "dimensions": {
+      "clarity": {
+        "score": 0.75,
+        "finding": "Mostly clear but a few terms could be more concrete. / Sebagian jelas, beberapa istilah bisa lebih konkret."
+      },
+      "testability": {
+        "score": 0.75,
+        "finding": "Some testable structure, but not every criterion is pass/fail. / Beberapa struktur teruji, tapi belum semua kriteria bisa lulus/gagal."
+      },
+      "specificity": {
+        "score": 0.25,
+        "finding": "No quantifiers (numbers, time limits, sizes). Add concrete thresholds. / Tidak ada angka, batas waktu, ukuran. Tambahkan ambang batas konkret. ⚠️ PRIORITY — lowest dimension."
+      },
+      "structure": {
+        "score": 0.25,
+        "finding": "Prose-style criteria. Convert to Given/When/Then format. / Kriteria bergaya prosa. Konversikan ke format Given/When/Then."
+      },
+      "edge_negative": {
+        "score": 0.75,
+        "finding": "Some negative coverage but skip important paths (see report). / Beberapa kasus negatif ada tapi melewatkan jalur penting."
+      },
+      "outcome_focus": {
+        "score": 0.75,
+        "finding": "Mostly outcome-focused but some implementation language remains. / Sebagian besar fokus pada hasil tapi masih ada bahasa implementasi."
+      },
+      "risk": {
+        "score": 0.6,
+        "finding": "Risky but gated by approval. / Berisiko tapi sudah ada persetujuan."
+      }
+    },
+    "generated_at": "2026-10-01T07:01:50.754643+00:00"
+  },
+  {
+    "key": "PROJ-103",
+    "summary": "User Profile Picture Upload",
+    "overall": 56.0,
+    "gate": "REFINE ⚡",
+    "qualifier": "Needs improvement before autonomous processing",
+    "ac_count": 4,
+    "dimensions": {
+      "clarity": {
+        "score": 0.75,
+        "finding": "Mostly clear but a few terms could be more concrete. / Sebagian jelas, beberapa istilah bisa lebih konkret."
+      },
+      "testability": {
+        "score": 0.75,
+        "finding": "Some testable structure, but not every criterion is pass/fail. / Beberapa struktur teruji, tapi belum semua kriteria bisa lulus/gagal."
+      },
+      "specificity": {
+        "score": 0.25,
+        "finding": "No quantifiers (numbers, time limits, sizes). Add concrete thresholds. / Tidak ada angka, batas waktu, ukuran. Tambahkan ambang batas konkret. ⚠️ PRIORITY — lowest dimension."
+      },
+      "structure": {
+        "score": 0.25,
+        "finding": "Prose-style criteria. Convert to Given/When/Then format. / Kriteria bergaya prosa. Konversikan ke format Given/When/Then."
+      },
+      "edge_negative": {
+        "score": 0.75,
+        "finding": "Some negative coverage but skip important paths (see report). / Beberapa kasus negatif ada tapi melewatkan jalur penting."
+      },
+      "outcome_focus": {
+        "score": 0.25,
+        "finding": "Describes implementation steps (call, install, update DB). Focus on user-observable behaviour. / Menjelaskan langkah implementasi. Fokus pada perilaku yang bisa diamati pengguna."
+      },
+      "risk": {
+        "score": 0.6,
+        "finding": "Risky but gated by approval. / Berisiko tapi sudah ada persetujuan."
+      }
+    },
+    "generated_at": "2026-10-01T07:01:38.562238+00:00"
+  },
+  {
+    "key": "PROJ-110",
+    "summary": "Notification Preferences Page",
+    "overall": 46.0,
+    "gate": "REFINE ⚡",
+    "qualifier": "Needs improvement before autonomous processing",
+    "ac_count": 4,
+    "dimensions": {
+      "clarity": {
+        "score": 0.5,
+        "finding": "Contains vague terms like 'easy', 'fast', 'nice'. Replace with concrete, operational definitions. / Gunakan istilah konkret bukan 'mudah' atau 'cepat'."
+      },
+      "testability": {
+        "score": 0.5,
+        "finding": "Missing GWT/BDD format. Rewrite as objectively verifiable pass/fail statements. / Tidak menggunakan format GWT. Tulis ulang sebagai pernyataan yang bisa diverifikasi."
+      },
+      "specificity": {
+        "score": 0.25,
+        "finding": "No quantifiers (numbers, time limits, sizes). Add concrete thresholds. / Tidak ada angka, batas waktu, ukuran. Tambahkan ambang batas konkret. ⚠️ PRIORITY — lowest dimension."
+      },
+      "structure": {
+        "score": 0.25,
+        "finding": "Prose-style criteria. Convert to Given/When/Then format. / Kriteria bergaya prosa. Konversikan ke format Given/When/Then."
+      },
+      "edge_negative": {
+        "score": 0.75,
+        "finding": "Some negative coverage but skip important paths (see report). / Beberapa kasus negatif ada tapi melewatkan jalur penting."
+      },
+      "outcome_focus": {
+        "score": 0.25,
+        "finding": "Describes implementation steps (call, install, update DB). Focus on user-observable behaviour. / Menjelaskan langkah implementasi. Fokus pada perilaku yang bisa diamati pengguna."
+      },
+      "risk": {
+        "score": 0.6,
+        "finding": "Risky but gated by approval. / Berisiko tapi sudah ada persetujuan."
+      }
+    },
+    "generated_at": "2026-10-01T07:01:57.112369+00:00"
+  },
+  {
+    "key": "PROJ-102",
+    "summary": "Export Dashboard to PDF",
+    "overall": 39.8,
+    "gate": "BLOCK 🛑",
+    "qualifier": "Requires significant rewriting",
+    "ac_count": 5,
+    "dimensions": {
+      "clarity": {
+        "score": 0.25,
+        "finding": "Contains vague terms like 'easy', 'fast', 'nice'. Replace with concrete, operational definitions. / Gunakan istilah konkret bukan 'mudah' atau 'cepat'. ⚠️ PRIORITY — lowest dimension."
+      },
+      "testability": {
+        "score": 0.25,
+        "finding": "Missing GWT/BDD format. Rewrite as objectively verifiable pass/fail statements. / Tidak menggunakan format GWT. Tulis ulang sebagai pernyataan yang bisa diverifikasi."
+      },
+      "specificity": {
+        "score": 0.25,
+        "finding": "No quantifiers (numbers, time limits, sizes). Add concrete thresholds. / Tidak ada angka, batas waktu, ukuran. Tambahkan ambang batas konkret."
+      },
+      "structure": {
+        "score": 0.25,
+        "finding": "Prose-style criteria. Convert to Given/When/Then format. / Kriteria bergaya prosa. Konversikan ke format Given/When/Then."
+      },
+      "edge_negative": {
+        "score": 1.0,
+        "finding": "Good coverage of error paths, boundaries, and edge cases. / Cakupan error, batas, dan kasus tepi yang baik."
+      },
+      "outcome_focus": {
+        "score": 0.25,
+        "finding": "Describes implementation steps (call, install, update DB). Focus on user-observable behaviour. / Menjelaskan langkah implementasi. Fokus pada perilaku yang bisa diamati pengguna."
+      },
+      "risk": {
+        "score": 0.6,
+        "finding": "Risky but gated by approval. / Berisiko tapi sudah ada persetujuan."
+      }
+    },
+    "generated_at": "2026-10-01T07:01:37.214618+00:00"
+  },
+  {
+    "key": "PROJ-105",
+    "summary": "Onboarding Email Sequence",
+    "overall": 28.5,
+    "gate": "BLOCK 🛑",
+    "qualifier": "Requires significant rewriting",
+    "ac_count": 6,
+    "dimensions": {
+      "clarity": {
+        "score": 0.25,
+        "finding": "Contains vague terms like 'easy', 'fast', 'nice'. Replace with concrete, operational definitions. / Gunakan istilah konkret bukan 'mudah' atau 'cepat'. ⚠️ PRIORITY — lowest dimension."
+      },
+      "testability": {
+        "score": 0.25,
+        "finding": "Missing GWT/BDD format. Rewrite as objectively verifiable pass/fail statements. / Tidak menggunakan format GWT. Tulis ulang sebagai pernyataan yang bisa diverifikasi."
+      },
+      "specificity": {
+        "score": 0.25,
+        "finding": "No quantifiers (numbers, time limits, sizes). Add concrete thresholds. / Tidak ada angka, batas waktu, ukuran. Tambahkan ambang batas konkret."
+      },
+      "structure": {
+        "score": 0.25,
+        "finding": "Prose-style criteria. Convert to Given/When/Then format. / Kriteria bergaya prosa. Konversikan ke format Given/When/Then."
+      },
+      "edge_negative": {
+        "score": 0.25,
+        "finding": "No edge or negative cases mentioned. Add: empty states, errors, boundaries, auth failures. / Tidak ada kasus tepi atau negatif. Tambahkan: keadaan kosong, error, batas, kegagalan auth."
+      },
+      "outcome_focus": {
+        "score": 0.25,
+        "finding": "Describes implementation steps (call, install, update DB). Focus on user-observable behaviour. / Menjelaskan langkah implementasi. Fokus pada perilaku yang bisa diamati pengguna."
+      },
+      "risk": {
+        "score": 0.6,
+        "finding": "Risky but gated by approval. / Berisiko tapi sudah ada persetujuan."
+      }
+    },
+    "generated_at": "2026-10-01T07:01:44.677926+00:00"
+  }
+]
