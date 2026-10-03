@@ -8,6 +8,7 @@ LAYA/finetune/runs/**/model.safetensors
 LAYA/finetune/runs/**/model.pt
 LAYA/finetune/runs/**/model.bin
 LAYA/finetune/runs/**/*.safetensors
+!LAYA/finetune/runs/plan103/model.safetensors
 
 # Local logs / scratch
 *.log
